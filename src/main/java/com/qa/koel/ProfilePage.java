@@ -3,29 +3,32 @@ package com.qa.koel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class ProfilePage extends BasePage {
-    static final By CURRENT_PASSWORD_FIELD = By.cssSelector("input[id='inputProfileCurrentPassword']");
-    static final By PROFILE_NAME_FIELD = By.cssSelector("input[id='inputProfileName'");
-    static final By SAVE_BUTTON = By.cssSelector(".btn-submit");
+    @FindBy(css = "input[id='inputProfileCurrentPassword']")
+    private WebElement currentPasswordField;
+    @FindBy(css = "input[id='inputProfileName'")
+    private WebElement profileNameField;
+    @FindBy(css = ".btn-submit")
+    private WebElement saveButton;
 
     public ProfilePage(WebDriver driver){
         super(driver);
+    }
 
-    }
-    void fillInCurrentPassword(String password){
-        WebElement currentPasswordField = pageDriver.findElement(CURRENT_PASSWORD_FIELD);
+    ProfilePage fillInCurrentPassword(String password){
         currentPasswordField.sendKeys(password);
+        return this;
     }
-    void changeProfileNameFieldValue(String newName){
-        WebElement profileNameField = pageDriver.findElement(PROFILE_NAME_FIELD);
+    ProfilePage changeProfileNameFieldValue(String newName){
         profileNameField.clear();
         profileNameField.sendKeys(newName);
+        return this;
 
     }
-    void clickSaveButton() {
-        WebElement saveButton = pageDriver.findElement(SAVE_BUTTON);
+    ProfilePage clickSaveButton() {
         saveButton.click();
+        return this;
     }
-
 }

@@ -16,11 +16,11 @@ public class Homework20 extends BaseTest {
         homePage = new HomePage(getDriver());
 
         loginPage.loginKoel("son.nam.kim@testpro.io", "koel08/23");
-        homePage.clickPlusSign();
-        homePage.clickOptionSimpleNewPlaylist();
-        homePage.typeInNewPlaylistName();
-        homePage.clickCreatedSimplePlaylistNewP();
-        homePage.clickDeletePlaylistButton();
+        homePage.createNewPlaylist()
+                .clickOptionSimpleNewPlaylist()
+                .typeInNewPlaylistName()
+                .clickCreatedSimplePlaylistNewP()
+                .clickDeletePlaylistButton();
         Assert.assertTrue(homePage.notificationDeletedPlaylistName().isDisplayed());
         }
     }

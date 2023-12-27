@@ -1,56 +1,59 @@
 package com.qa.koel;
 
+import com.beust.ah.A;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 
 public class AllSongsPage extends BasePage {
-    static final By SIDE_PANEL_LIST_ALL_SONGS = By.cssSelector("a[class='songs']");
-    static final By FIRST_SONG_IN_ALL_SONGS = By.cssSelector
-            ("#songsWrapper > div > div > div > table > tr:nth-child(1) > td.title");
-    static final By GREEN_BUTTON_ADD_TO = By.cssSelector("button[class='btn-add-to']");
-    static final By DROPDOWN_MENU_PLAYLIST_NEW_P = By.cssSelector
-            ("#songsWrapper > header > div > div > section > ul > li.playlist");
-    static final  By OPTION_PLAY_IN_DROPDOWN_MENU = By.cssSelector("#app>nav>ul>li.playback");
-    static final By SOUND_BARS_IMAGE = By.cssSelector("div>img");
-    static final By ADDED_FIRST_SONG_TO_SIMPLE_CREATED_PLAYLIST = By.cssSelector
-            ("#playlistWrapper>div>div>div>table>tr>td.title");
+    @FindBy(css = "a[class='songs']")
+    private WebElement sidePanelListAllSongs;
+    @FindBy(css = "tr[class='song-item selected']>td.title")
+    private WebElement firstSongInAllSongsPlaylist;
+    @FindBy(css = "button[class='btn-add-to']")
+    private WebElement greenButtonAddTo;
+    @FindBy(css = "#songsWrapper > header > div > div > section > ul > li.playlist")
+    private WebElement dropdownMenuPlaylistNewP;
+    @FindBy(css = "li.playback")
+    private WebElement optionPlayInDropdownMenu;
+    @FindBy(css = "div>img")
+    private WebElement soundBarsImage;
+    @FindBy(css = "#playlistWrapper>div>div>div>table>tr>td.title")
+    private WebElement addedFirstSongFromAllSongs;
 
     public AllSongsPage(WebDriver driver) {
         super(driver);
     }
-    public void clickSidePanelListAllSongs(){
-        WebElement sidePanelListAllSongs = pageDriver.findElement(SIDE_PANEL_LIST_ALL_SONGS);
+    public AllSongsPage clickSidePanelListAllSongs(){
         sidePanelListAllSongs.click();
+        return this;
     }
-    public void clickFirstSongInAllSongs(){
-        WebElement firstSongInAllSongsPlaylist = pageDriver.findElement(FIRST_SONG_IN_ALL_SONGS);
+    public AllSongsPage clickFirstSongInAllSongsPlaylist(){
         firstSongInAllSongsPlaylist.click();
+        return this;
     }
-    public void clickGreenButtonAddTo(){
-        WebElement greenButtonAddTo = pageDriver.findElement(GREEN_BUTTON_ADD_TO);
+    public AllSongsPage clickGreenButtonAddTo(){
         greenButtonAddTo.click();
+        return this;
     }
-    public void clickDropdownMenuPlaylistNewP(){
-        WebElement playlistNewPinDropDownMenu = pageDriver.findElement(DROPDOWN_MENU_PLAYLIST_NEW_P);
-        playlistNewPinDropDownMenu.click();
+    public AllSongsPage clickDropdownMenuPlaylistNewP(){
+        dropdownMenuPlaylistNewP.click();
+        return this;
     }
-    public boolean getAddedFirstSongToSimpleCreatedPlaylist(){
-        WebElement addedFirstSongFromAllSongs = pageDriver.findElement(ADDED_FIRST_SONG_TO_SIMPLE_CREATED_PLAYLIST);
-        return addedFirstSongFromAllSongs.isDisplayed();
+    public WebElement getAddedFirstSongToSimpleCreatedPlaylist(){
+        return addedFirstSongFromAllSongs;
     }
-    public void contextClickFirstSongInAllSongsPlaylist(){
-        WebElement firstSongInAllSongsPlaylist = pageDriver.findElement(By.cssSelector
-                ("#songsWrapper > div > div > div > table > tr:nth-child(1) > td.title"));
-        actions.contextClick(firstSongInAllSongsPlaylist).perform();
+    public AllSongsPage contextClickFirstSongInAllSongsPlaylist(){
+        contextClick(firstSongInAllSongsPlaylist);
+        return this;
     }
-    public void clickOptionPlayInDropdownMenu(){
-        WebElement optionPlayInDropdownMenu = pageDriver.findElement(OPTION_PLAY_IN_DROPDOWN_MENU);
+    public AllSongsPage clickOptionPlayInDropdownMenu(){
         optionPlayInDropdownMenu.click();
+        return this;
     }
     public WebElement soundBarsImage(){
-        WebElement soundBarsImage = pageDriver.findElement(SOUND_BARS_IMAGE);
-        return pageDriver.findElement(SOUND_BARS_IMAGE);
+        return soundBarsImage;
     }
 }

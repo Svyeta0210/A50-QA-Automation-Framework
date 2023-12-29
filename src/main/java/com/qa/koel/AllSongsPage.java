@@ -6,11 +6,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class AllSongsPage extends BasePage {
-    @FindBy(css = "a[class='songs']")
+    @FindBy(xpath = "//a[@class='songs active']")
     private WebElement sidePanelListAllSongs;
-    @FindBy(css = "tr[class='song-item selected']>td.title")
+    @FindBy(css = "#songsWrapper > header > div.heading-wrapper > h1)")
+    private WebElement allSongsPageTitle;
+    @FindBy(css = "tr[class='song-item selected']>td[class='title']")
     private WebElement firstSongInAllSongsPlaylist;
     @FindBy(css = "button[class='btn-add-to']")
     private WebElement greenButtonAddTo;
@@ -28,6 +31,10 @@ public class AllSongsPage extends BasePage {
     }
     public AllSongsPage clickSidePanelListAllSongs(){
         sidePanelListAllSongs.click();
+        return this;
+    }
+    public AllSongsPage getAllSongsPageTitle(){
+        allSongsPageTitle.isDisplayed();
         return this;
     }
     public AllSongsPage clickFirstSongInAllSongsPlaylist(){

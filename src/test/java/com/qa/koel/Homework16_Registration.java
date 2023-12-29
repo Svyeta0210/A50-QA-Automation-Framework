@@ -14,9 +14,8 @@ public class Homework16_Registration extends BaseTest {
         loginPage = new LoginPage(getDriver());
         registrationPage = new RegistrationPage(getDriver());
 
-        registrationPage.clickLoginFormRegistrationElement("//form//div[2]//a")
-//        explicitWait.until(ExpectedConditions.visibilityOfElementLocated
-//                (By.cssSelector("form>p:nth-child(4)>input[type='email']")));
+        explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//form//div[2]//a")));
+        registrationPage.clickLoginFormRegistrationElement()
                         .registrationPageEmailField().isDisplayed();
         Assert.assertTrue(registrationPage.getRegisterNewAccountElement().isDisplayed());
         }

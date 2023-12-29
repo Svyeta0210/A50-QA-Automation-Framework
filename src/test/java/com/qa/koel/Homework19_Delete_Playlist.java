@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class Homework19 extends BaseTest {
+public class Homework19_Delete_Playlist extends BaseTest {
     LoginPage loginPage;
     HomePage homePage;
     @Test(testName = "Delete Created Playlist", groups = {"Smoke","Regression"})

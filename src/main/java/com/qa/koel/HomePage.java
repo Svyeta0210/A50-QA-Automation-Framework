@@ -104,4 +104,7 @@ public class HomePage extends BasePage {
         String name = newPlaylistName.getText();
         return name;
     }
+    public WebElement getNotificationMessage(){
+        return notificationMessage;
+    }
 }

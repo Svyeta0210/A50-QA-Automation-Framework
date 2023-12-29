@@ -17,7 +17,7 @@ public class RegistrationPage extends BasePage {
     public RegistrationPage(WebDriver driver){
         super(driver);
     }
-    public RegistrationPage clickLoginFormRegistrationElement(String s){
+    public RegistrationPage clickLoginFormRegistrationElement(){
         registrationElement.click();
         return this;
     }

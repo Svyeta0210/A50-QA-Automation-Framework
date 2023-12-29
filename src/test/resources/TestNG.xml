@@ -11,7 +11,7 @@
                     <include name="deletePlaylist"/>
                 </methods>
             </class>
-            <class name="com.qa.koel.Homework19"/>
+            <class name="com.qa.koel.Homework19_Delete_Playlist"/>
             <class name="com.qa.koel.Homework18_Play_A_Song"/>
             <class name="com.qa.koel.Homework17_AddSong"/>
             <class name="com.qa.koel.Homework16_Registration"/>
